@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import FocusInput from "./questions/focus-input";
 import Optimization from "./questions/optimization";
+import Users from "./questions/users";
 
 
 const ReactQuestions = () => {
@@ -22,6 +23,9 @@ const ReactQuestions = () => {
                 <div>
                     <NavLink activeClassName='active' to={`${match.url}/optimization`}>Optimization</NavLink>
                 </div>
+                <div>
+                    <NavLink activeClassName='active' to={`${match.url}/users`}>Users</NavLink>
+                </div>
             </div>
             <div className={'content'}>
                 <Switch>
@@ -30,6 +34,9 @@ const ReactQuestions = () => {
                     </Route>
                     <Route path={`${match.path}/optimization`}>
                         <Optimization/>
+                    </Route>
+                    <Route path={`${match.path}/users`}>
+                        <Users/>
                     </Route>
                     <Redirect from={match.path} to={`${match.path}/focus-input`}/>
                 </Switch>
