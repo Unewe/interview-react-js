@@ -12,17 +12,16 @@ function createCounter() {
 
 let counter = () => {};
 
-const Closures = () => {
+const initCounter = () => {
+    counter = createCounter();
+}
 
-    const setCounter = () => {
-        console.log('setCounter');
-        counter = createCounter();
-    }
+const Closures = () => {
 
     return (
         <div>
             <Button variant="contained" onClick={() => counter()}>Counter</Button>
-            <Button variant="contained" onClick={setCounter}>Set Counter</Button>
+            <Button variant="contained" onClick={initCounter}>Init Counter</Button>
         </div>
     )
 }
