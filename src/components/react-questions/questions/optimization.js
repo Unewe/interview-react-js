@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 
-const ShouldComponentUpdate = () => {
-    const [inputValues, setInputValues] = useState({name: '', age: ''});
+const Optimization = () => {
+    const [inputValues, setInputValues] = useState({item: '', description: ''});
 
     const handleOnChange = (event) => {
         const {name, value} = event.target;
@@ -10,26 +10,23 @@ const ShouldComponentUpdate = () => {
     }
 
     const callback = () => {
-        return 'Hello';
+        return 'Item is: ';
     }
 
     return (
         <div>
-            <div>
-                <TextField variant='outlined' label='Name' autoComplete='off'
-                           name='name' value={inputValues.name} onChange={handleOnChange}/>
-                <TextField variant='outlined' label='Age' autoComplete='off'
-                           name='age' value={inputValues.age} onChange={handleOnChange}/>
-            </div>
-
-            <Child callback={callback} name={inputValues.name}/>
+            <TextField variant='outlined' label='Item' autoComplete='off'
+                       name='item' value={inputValues.item} onChange={handleOnChange}/>
+            <TextField variant='outlined' label='Description' autoComplete='off'
+                       name='description' value={inputValues.description} onChange={handleOnChange}/>
+            <Child callback={callback} item={inputValues.item}/>
         </div>
     )
 }
 
-const Child = React.memo(({callback, name}) => {
+const Child = React.memo(({callback, item}) => {
     console.log('UPDATE');
-    return <div className={'result'}>{callback()} {name}</div>;
+    return <div className={'result'}>{callback()}{item}</div>;
 });
 
-export default ShouldComponentUpdate;
+export default Optimization;

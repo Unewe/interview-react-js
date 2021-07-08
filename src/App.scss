@@ -1,3 +1,11 @@
 .App {
-  
+  header {
+    background-color: grey;
+
+    a {
+      margin-left: 20px;
+      line-height: 40px;
+      color: white;
+    }
+  }
 }
