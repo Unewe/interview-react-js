@@ -2,6 +2,9 @@ import React, {useCallback, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
+/**
+ * Сделать так, что бы по нажатию на кнопку фокус устанавливался на первый input.
+ */
 const FocusInput = () => {
     const [inputValues, setInputValues] = useState({login: '', password: ''});
 
@@ -10,8 +13,11 @@ const FocusInput = () => {
         setInputValues({...inputValues, [name]: value});
     }
 
+    // const ref = useRef();
+
     const focusLogin = useCallback(() => {
-        let element;
+        // let element = ref.current;
+        const element = undefined;
         element?.focus();
     }, []);
 
@@ -22,6 +28,8 @@ const FocusInput = () => {
             </div>
 
             <div>
+                {/*<TextField inputRef={ref} variant='outlined' label='Login' autoComplete='off'*/}
+                {/*           name='login' value={inputValues.login} onChange={handleOnChange}/>*/}
                 <TextField variant='outlined' label='Login' autoComplete='off'
                            name='login' value={inputValues.login} onChange={handleOnChange}/>
                 <TextField variant='outlined' label='Password' autoComplete='off'

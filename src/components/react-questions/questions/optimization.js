@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 
+/**
+ * Сделасть так, чтобы при вводе во второй input Child не перерисовывался.
+ */
 const Optimization = () => {
     const [inputValues, setInputValues] = useState({item: '', description: ''});
 
@@ -8,6 +11,10 @@ const Optimization = () => {
         const {name, value} = event.target;
         setInputValues({...inputValues, [name]: value});
     }
+
+    // const callback = useCallback(() => {
+    //     return 'Item is: ';
+    // }, []);
 
     const callback = () => {
         return 'Item is: ';
@@ -24,9 +31,14 @@ const Optimization = () => {
     )
 }
 
-const Child = React.memo(({callback, item}) => {
+// const Child = React.memo(({callback, item}) => {
+//     console.log('UPDATE');
+//     return <div className={'result'}>{callback()}{item}</div>;
+// });
+
+const Child = ({callback, item}) => {
     console.log('UPDATE');
     return <div className={'result'}>{callback()}{item}</div>;
-});
+};
 
 export default Optimization;

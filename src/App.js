@@ -19,7 +19,6 @@ function App() {
                     <NavLink activeClassName='active' to='/react'>ReactJs</NavLink>
                     <NavLink activeClassName='active' to='/rxjs'>RxJs</NavLink>
                 </header>
-
                 <main>
                     <Switch>
                         <Route path='/js'>

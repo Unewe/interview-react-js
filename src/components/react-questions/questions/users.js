@@ -3,6 +3,9 @@ import TextField from '@material-ui/core/TextField';
 import UserService from '../../../services/user-service';
 import Button from "@material-ui/core/Button";
 
+/**
+ * Сделать так, чтобы пользователи загружались при монтировании компонента.
+ */
 const Users = () => {
     const [input, setInput] = useState('');
     const [users, setUsers] = useState([]);
@@ -10,6 +13,8 @@ const Users = () => {
     const getUsers = () => {
         UserService.getUsers().then(value => setUsers(value));
     }
+
+    // useEffect(getUsers, []);
 
     return (
         <div>

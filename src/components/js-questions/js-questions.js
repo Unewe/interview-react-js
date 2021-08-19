@@ -9,6 +9,7 @@ import ShowNameButton from './questions/show-user-name';
 import AsyncAwait from './questions/async-await';
 import Closures from './questions/closures';
 import Aggregation from './questions/aggregation';
+import Array from "./questions/arrays";
 
 
 const JsQuestions = () => {
@@ -29,6 +30,9 @@ const JsQuestions = () => {
                 <div>
                     <NavLink activeClassName='active' to={`${match.url}/aggregation`}>Aggregation</NavLink>
                 </div>
+                <div>
+                    <NavLink activeClassName='active' to={`${match.url}/array`}>Array</NavLink>
+                </div>
             </div>
             <div className={'content'}>
                 <Switch>
@@ -43,6 +47,9 @@ const JsQuestions = () => {
                     </Route>
                     <Route path={`${match.path}/aggregation`}>
                         <Aggregation/>
+                    </Route>
+                    <Route path={`${match.path}/array`}>
+                        <Array/>
                     </Route>
                     <Redirect from={match.path} to={`${match.path}/show-name`} />
                 </Switch>
